@@ -1,0 +1,43 @@
+#post-box{
+	width:50%;
+	height:auto;
+	margin:0 auto;
+	margin-top:5%;
+	text-align:center;
+	background: #00000060;
+	padding:60px 50px;
+}
+#post-box form{
+	margin-top:50px;
+}
+#post-box form .item input{
+	width:180px;
+	font-size:13px;
+	margin:10px;
+	border:0;
+	border-bottom:2px solid #ffffff;
+	padding:5px 10px;
+	background:#ffffff00;
+	color:#fff;
+}
+#post-box form .item select{
+	width:200px;
+	font-size:13px;
+	margin:10px;
+	border:0;
+	border-bottom:2px solid #ffffff;
+	padding:5px 10px;
+	background:#ffffff00;
+	color:#fff;
+}
+#post-box form .item select option{
+	background:grey;
+}
+#post-box form .item i{
+	font-size: 13px;
+}
+#post-box form button{
+	margin-top:20px;
+	width:180px;
+	height:30px;
+}

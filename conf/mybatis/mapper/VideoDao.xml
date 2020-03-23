@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.axweb.dao.VideoDao">
+	<resultMap type="com.axweb.bean.Video" id="videomap">
+		<id property="vid" column="video_id"/>
+		<result property="uid" column="user_id"/>
+		<result property="title" column="video_title"/>
+		<result property="path" column="video_path"/>
+		<result property="type" column="video_type"/>
+		<result property="click" column="video_click"/>
+		<result property="imgpath" column="video_img"/>
+		<result property="tag" column="video_tag"/>
+		<result property="time" column="video_time"/>
+		<result property="collect" column="video_collect"/>
+		<result property="comment" column="video_comment"/>
+		<result property="like" column="video_like"/>
+	</resultMap>
+	<insert id="addvideo">
+	insert into videos(video_id, user_id,video_title,video_path,video_type,video_img,video_tag)
+	    values(#{vid},#{uid},#{title},#{path},#{type},#{imgpath},#{tag})
+	</insert>
+	<select id="getvideobytag" resultMap="videomap">
+	select * from videos where video_tag=#{tag}
+	</select>
+	<select id="getvideorandom" resultMap="videomap">
+	select * from videos where video_tag=#{tag} order by RAND() limit 10
+	</select>
+	<select id="getvideoorder" resultMap="videomap">
+	select * from videos where video_tag=#{tag} order by video_like limit 10
+	</select>
+</mapper>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.axweb.dao.UserDao">
+
+	<resultMap type="com.axweb.bean.User" id="usermap">
+		<id property="id" column="user_id"/>
+		<result property="password" column="user_password"/>
+		<result property="name" column="user_name"/>
+		<result property="gender" column="user_gender"/>
+		<result property="tel" column="user_tel"/>
+		<result property="email" column="user_email"/>
+		<result property="saying" column="user_saying"/>
+		<result property="headpic" column="user_headpic"/>
+		<result property="attention" column="user_attention"/>
+		<result property="fans" column="user_fans"/>
+	</resultMap>
+	
+	<select id="getUserById" resultMap="usermap">
+		select * from user where user_id=#{id}
+	</select>
+	<select id="getusernum" resultType="int">
+		select count(user_id) from user where user_id = #{id}
+	</select>
+	<insert id="addUser">
+		insert into user(user_id,user_name,user_password)
+		values(#{id},#{password},#{name})
+	</insert>
+</mapper>
